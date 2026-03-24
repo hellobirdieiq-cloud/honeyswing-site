@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmed — HoneySwing</title>
+  <meta name="description" content="Your child's HoneySwing account is confirmed. Download the app and start practicing.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --honey: #D4960A;
+      --honey-bright: #F0AB0E;
+      --honey-glow: #FFF8E7;
+      --green-deep: #14312A;
+      --green-rich: #1B5E45;
+      --green-soft: #2A8C68;
+      --cream: #FFFDF7;
+      --surface: #FFFFFF;
+      --text-primary: #14312A;
+      --text-body: #3D5A50;
+      --text-muted: #7A8F87;
+      --border: rgba(20, 49, 42, 0.08);
+      --shadow-md: 0 8px 32px rgba(20,49,42,0.06);
+      --radius: 20px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 253, 247, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-mark img { width: 100%; height: 100%; object-fit: cover; }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+
+    .nav-links a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--green-deep); }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-deep);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-rich);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.btn-primary) { display: none; }
+      nav { padding: 0 20px; }
+    }
+
+    /* ── PAGE ── */
+    .confirmed-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 60px;
+    }
+
+    .confirmed-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 56px 40px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      width: 100%;
+      max-width: 460px;
+      text-align: center;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .check-circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #F0FDF4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .check-circle svg {
+      width: 32px;
+      height: 32px;
+      color: var(--green-soft);
+    }
+
+    .confirmed-card h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .confirmed-card p {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.55;
+      margin-bottom: 32px;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .download-btn {
+      padding: 14px 32px;
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+    .footer-links { display: flex; gap: 24px; }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--green-deep); }
+
+    @media (max-width: 640px) {
+      footer { flex-direction: column; text-align: center; }
+      .confirmed-card { padding: 44px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="logo-mark"><img src="icon.png" alt="HoneySwing icon"></span>
+      HoneySwing
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="https://apps.apple.com/app/id6760777790" class="btn-primary">Download</a>
+    </div>
+  </nav>
+
+  <!-- CONFIRMED -->
+  <main class="confirmed-page">
+    <div class="confirmed-card">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h1>You're all set!</h1>
+      <p>Your child's HoneySwing account is confirmed. They're ready to start analyzing their swing.</p>
+      <a href="https://apps.apple.com/app/id6760777790" class="btn-primary download-btn">Download the App</a>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 HoneySwing</span>
+    <div class="footer-links">
+      <a href="https://hellobirdieiq-cloud.github.io/honeyswing-privacy/">Privacy</a>
+      <a href="mailto:sammazzeo31@gmail.com">Support</a>
+    </div>
+  </footer>
+
+</body>
+</html>
