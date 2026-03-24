@@ -512,6 +512,7 @@
         const { error } = await supabase.auth.signInWithOtp({
           email,
           options: {
+            emailRedirectTo: 'https://honeyswing.com/confirmed.html',
             data: {
               parent_name: parentName,
               child_name: childName,
