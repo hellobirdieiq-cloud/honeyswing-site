@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — HoneySwing</title>
+  <meta name="description" content="Create a free HoneySwing account for your child. COPPA-compliant parental consent required.">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --honey: #D4960A;
+      --honey-bright: #F0AB0E;
+      --honey-glow: #FFF8E7;
+      --green-deep: #14312A;
+      --green-rich: #1B5E45;
+      --green-soft: #2A8C68;
+      --cream: #FFFDF7;
+      --cream-warm: #F9F3E5;
+      --surface: #FFFFFF;
+      --text-primary: #14312A;
+      --text-body: #3D5A50;
+      --text-muted: #7A8F87;
+      --border: rgba(20, 49, 42, 0.08);
+      --shadow-sm: 0 1px 3px rgba(20,49,42,0.04);
+      --shadow-md: 0 8px 32px rgba(20,49,42,0.06);
+      --shadow-lg: 0 24px 64px rgba(20,49,42,0.08);
+      --radius: 20px;
+      --radius-sm: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 253, 247, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--green-deep); }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-deep);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-rich);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    @media (max-width: 640px) {
+      .nav-links a:not(.btn-primary) { display: none; }
+      nav { padding: 0 20px; }
+    }
+
+    /* ── PAGE LAYOUT ── */
+    .signup-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 24px 60px;
+    }
+
+    /* ── FORM CARD ── */
+    .signup-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      width: 100%;
+      max-width: 460px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .signup-card h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1.2;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .signup-subtitle {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    /* ── FORM FIELDS ── */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text-primary);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--honey);
+      box-shadow: 0 0 0 3px rgba(212, 150, 10, 0.12);
+    }
+
+    .form-group input::placeholder {
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* ── CHECKBOX ── */
+    .consent-group {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .consent-group input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--border);
+      border-radius: 5px;
+      background: var(--cream);
+      cursor: pointer;
+      transition: all 0.15s;
+      margin-top: 2px;
+      position: relative;
+    }
+
+    .consent-group input[type="checkbox"]:checked {
+      background: var(--honey);
+      border-color: var(--honey);
+    }
+
+    .consent-group input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 5px;
+      width: 5px;
+      height: 9px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    .consent-group input[type="checkbox"]:focus {
+      box-shadow: 0 0 0 3px rgba(212, 150, 10, 0.12);
+    }
+
+    .consent-group label {
+      font-size: 0.85rem;
+      color: var(--text-body);
+      line-height: 1.5;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    /* ── SUBMIT ── */
+    .submit-btn {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 1rem;
+    }
+
+    /* ── MESSAGES ── */
+    .form-message {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      display: none;
+    }
+
+    .form-message.error {
+      display: block;
+      background: #FEF2F2;
+      color: #991B1B;
+      border: 1px solid #FECACA;
+    }
+
+    .form-message.success {
+      display: block;
+      background: #F0FDF4;
+      color: #166534;
+      border: 1px solid #BBF7D0;
+    }
+
+    /* ── SKIP ── */
+    .skip-link {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    .skip-link:hover { color: var(--text-body); }
+
+    /* ── SUCCESS STATE ── */
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .success-state .check-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #F0FDF4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .success-state .check-circle svg {
+      width: 28px;
+      height: 28px;
+      color: var(--green-soft);
+    }
+
+    .success-state h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 8px;
+    }
+
+    .success-state p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .success-state .email-highlight {
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover { color: var(--green-deep); }
+
+    @media (max-width: 640px) {
+      footer { flex-direction: column; text-align: center; }
+      .signup-card { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="logo-mark"><img src="icon.png" alt="HoneySwing icon"></span>
+      HoneySwing
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="https://apps.apple.com/app/id6760777790" class="btn-primary">Download</a>
+    </div>
+  </nav>
+
+  <!-- SIGNUP FORM -->
+  <main class="signup-page">
+    <div class="signup-card">
+      <div id="form-state">
+        <h1>Create your child's account</h1>
+        <p class="signup-subtitle">Free forever. No credit card. Takes 30 seconds.</p>
+
+        <form id="signup-form" novalidate>
+          <div class="form-group">
+            <label for="parent-name">Your name</label>
+            <input type="text" id="parent-name" placeholder="Parent or guardian name" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="parent-email">Your email</label>
+            <input type="email" id="parent-email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="child-name">Child's first name</label>
+            <input type="text" id="child-name" placeholder="First name" required autocomplete="off">
+          </div>
+
+          <div class="consent-group">
+            <input type="checkbox" id="coppa-consent" required>
+            <label for="coppa-consent">I am this child's parent or legal guardian and I consent to the creation of their account in compliance with COPPA.</label>
+          </div>
+
+          <button type="submit" class="btn-primary submit-btn" id="submit-btn">Create Free Account</button>
+        </form>
+
+        <div id="form-message" class="form-message"></div>
+        <a href="/" class="skip-link">Not now</a>
+      </div>
+
+      <div id="success-state" class="success-state">
+        <div class="check-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <h2>Check your email</h2>
+        <p>We sent a confirmation link to <span id="confirm-email" class="email-highlight"></span>. Click the link to activate the account.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">&copy; 2026 HoneySwing</span>
+    <div class="footer-links">
+      <a href="https://hellobirdieiq-cloud.github.io/honeyswing-privacy/">Privacy</a>
+      <a href="mailto:sammazzeo31@gmail.com">Support</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    const supabase = createClient(
+      'https://xutbbirehugrrbkauhnl.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh1dGJiaXJlaHVncnJia2F1aG5sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI0Njg5NTAsImV4cCI6MjA4ODA0NDk1MH0.OjNH1MR3rJcxMNLcIewgMZxU_iBJOGRfxewEu8LlxMU'
+    );
+
+    const form = document.getElementById('signup-form');
+    const msgEl = document.getElementById('form-message');
+    const submitBtn = document.getElementById('submit-btn');
+    const formState = document.getElementById('form-state');
+    const successState = document.getElementById('success-state');
+    const confirmEmail = document.getElementById('confirm-email');
+
+    function showError(text) {
+      msgEl.textContent = text;
+      msgEl.className = 'form-message error';
+    }
+
+    function clearMessage() {
+      msgEl.textContent = '';
+      msgEl.className = 'form-message';
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMessage();
+
+      const parentName = document.getElementById('parent-name').value.trim();
+      const email = document.getElementById('parent-email').value.trim();
+      const childName = document.getElementById('child-name').value.trim();
+      const consent = document.getElementById('coppa-consent').checked;
+
+      if (!parentName) return showError('Please enter your name.');
+      if (!email) return showError('Please enter your email address.');
+      if (!childName) return showError("Please enter your child's first name.");
+      if (!consent) return showError('Parental consent is required to create an account.');
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Creating account\u2026';
+
+      try {
+        const { error } = await supabase.auth.signInWithOtp({
+          email,
+          options: {
+            data: {
+              parent_name: parentName,
+              child_name: childName,
+              coppa_consent: true,
+              coppa_consent_timestamp: new Date().toISOString(),
+            },
+          },
+        });
+
+        if (error) {
+          showError(error.message);
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Create Free Account';
+          return;
+        }
+
+        confirmEmail.textContent = email;
+        formState.style.display = 'none';
+        successState.style.display = 'block';
+      } catch (err) {
+        showError('Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Create Free Account';
+      }
+    });
+  </script>
+
+</body>
+</html>
