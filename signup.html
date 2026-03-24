@@ -431,8 +431,8 @@
           </div>
 
           <div class="form-group">
-            <label for="child-name">Child's first name</label>
-            <input type="text" id="child-name" placeholder="First name" required autocomplete="off">
+            <label for="child-name">Child's full name</label>
+            <input type="text" id="child-name" placeholder="First and last name" required autocomplete="off">
           </div>
 
           <div class="consent-group">
@@ -502,7 +502,7 @@
 
       if (!parentName) return showError('Please enter your name.');
       if (!email) return showError('Please enter your email address.');
-      if (!childName) return showError("Please enter your child's first name.");
+      if (!childName) return showError("Please enter your child's name.");
       if (!consent) return showError('Parental consent is required to create an account.');
 
       submitBtn.disabled = true;
