@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["B3774Z5A69.com.honeyswing.honeyswing-v2"],
+        "components": [
+          {
+            "/": "/r/*",
+            "comment": "Coach referral links"
+          }
+        ]
+      }
+    ]
+  }
+}
