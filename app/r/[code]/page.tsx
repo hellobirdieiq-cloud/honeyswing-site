@@ -143,12 +143,7 @@ export default async function ReferralPage({ params }: Props) {
               See your child&apos;s swing, score, and what to fix
             </p>
             <div className="bg-[#0a0a0a] border border-white/[0.06] rounded-3xl overflow-hidden aspect-[9/16] flex items-center justify-center">
-              {/* Replace with: <img src="/images/app-screenshot.png" alt="HoneySwing swing analysis" className="w-full h-auto" /> */}
-              <div className="text-center px-8">
-                <div className="text-[64px] mb-2">🏌️</div>
-                <p className="text-[14px] text-white/30">App screenshot goes here</p>
-                <p className="text-[12px] text-white/20 mt-1">Result screen with score + video</p>
-              </div>
+             <img src="/images/app-screenshot.png" alt="HoneySwing swing analysis" className="w-full h-auto" />
             </div>
             <div className="flex flex-wrap gap-2 justify-center mt-6">
               <Badge>Built for junior golfers</Badge>
