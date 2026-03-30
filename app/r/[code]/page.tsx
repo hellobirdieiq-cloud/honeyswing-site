@@ -248,13 +248,7 @@ export default async function ReferralPage({ params }: Props) {
           </div>
         </section>
 
-        {/* ===== BOTTOM CTA ===== */}
-        <section className="bg-[#0B1D0F] px-6 pt-4 pb-8">
-          <div className="max-w-[480px] mx-auto text-center">
-            <p className="text-[14px] text-white/40 mb-4">Get started in under a minute.</p>
-            <CTAButton className="w-full" />
-          </div>
-        </section>
+      
 
         <div className="h-28 bg-[#0B1D0F]" />
       </main>
