@@ -36,7 +36,7 @@ export default function PrivacyPage() {
         <p>You can delete your account and all associated data at any time from Settings within the app. Deletion is permanent and immediate.</p>
 
         <h2 className="text-lg font-semibold text-white pt-4">8. Contact</h2>
-        <p>Questions about your data? Email sammazzeo31@gmail.com.</p>
+        <p>Questions about your data? Email hello@honeyswing.com.</p>
       </section>
     </main>
   );
